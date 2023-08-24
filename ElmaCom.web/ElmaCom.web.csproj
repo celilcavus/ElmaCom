@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ElmaCom.BusinessLayer\ElmaCom.BusinessLayer.csproj" />
+    <ProjectReference Include="..\ElmaCom.Entity\ElmaCom.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

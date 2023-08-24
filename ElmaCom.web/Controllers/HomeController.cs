@@ -1,4 +1,6 @@
-﻿using ElmaCom.web.Models;
+﻿using ElmaCom.BusinessLayer.Interfaces;
+using ElmaCom.Entity.Entites;
+using ElmaCom.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,16 +8,19 @@ namespace ElmaCom.web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+      
+        private IBaseCategoryRepository _baseCategory;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IBaseCategoryRepository baseCategory)
         {
-            _logger = logger;
+            _baseCategory = baseCategory;
         }
 
+       
         public IActionResult Index()
         {
-            return View();
+            var model = _baseCategory.GetAll();
+            return View(model);
         }
 
         public IActionResult Privacy()

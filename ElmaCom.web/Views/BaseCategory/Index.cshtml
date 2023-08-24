@@ -1,0 +1,20 @@
+﻿@model BaseCategory
+
+@using(Html.BeginForm("Index","BaseCategory",FormMethod.Post))
+{
+    <label asp-for="CategoryName"></label>
+    <input asp-action="Index" asp-controller="BaseCategory" asp-for="CategoryName" class="form-control"/>
+    <br />
+
+    <label asp-for="Description"></label>
+    <textarea asp-action="Index" asp-controller="BaseCategory" asp-for="Description" class="form-control" style="height:150px"></textarea>
+    <br />
+
+    <label asp-for="IsActive"></label>
+    <input type="checkbox" asp-action="Index" asp-controller="BaseCategory" asp-for="IsActive" />
+    <br />
+
+
+    <button class="btn btn-outline-primary" type="submit">Kaydet</button>
+    <a asp-action="GetList" asp-controller="BaseCategory" class="btn btn-outline-dark">Go to List</a>
+}
