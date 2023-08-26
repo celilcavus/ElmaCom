@@ -13,6 +13,9 @@ internal class Program
         builder.Services.AddControllersWithViews();
 
         builder.Services.AddScoped<IBaseCategoryRepository, BaseCategoryRepository>();
+        builder.Services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
+        builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+
         builder.Services.AddScoped<ElmaComApplicationContext, ElmaComApplicationContext>();
 
         var app = builder.Build();

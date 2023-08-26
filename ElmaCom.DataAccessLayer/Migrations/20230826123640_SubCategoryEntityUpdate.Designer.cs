@@ -4,6 +4,7 @@ using ElmaCom.DataAccessLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElmaCom.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ElmaComApplicationContext))]
-    partial class ElmaComApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230826123640_SubCategoryEntityUpdate")]
+    partial class SubCategoryEntityUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,25 +89,7 @@ namespace ElmaCom.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BaseCategoryId");
-
                     b.ToTable("SubCategories");
-                });
-
-            modelBuilder.Entity("ElmaCom.Entity.Entites.SubCategory", b =>
-                {
-                    b.HasOne("ElmaCom.Entity.Entites.BaseCategory", "BaseCategory")
-                        .WithMany("SubCategories")
-                        .HasForeignKey("BaseCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BaseCategory");
-                });
-
-            modelBuilder.Entity("ElmaCom.Entity.Entites.BaseCategory", b =>
-                {
-                    b.Navigation("SubCategories");
                 });
 #pragma warning restore 612, 618
         }

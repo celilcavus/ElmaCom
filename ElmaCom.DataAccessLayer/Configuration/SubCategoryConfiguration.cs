@@ -22,6 +22,9 @@ namespace ElmaCom.DataAccessLayer.Configuration
             builder.Property(x => x.Description)
                .HasMaxLength(100)
                .IsRequired();
+
+            builder.HasOne(x => x.BaseCategory).WithMany(r => r.SubCategories);
+
         }
     }
 }

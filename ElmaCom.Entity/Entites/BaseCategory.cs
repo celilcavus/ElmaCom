@@ -10,6 +10,8 @@
 
         public bool IsActive { get; set; }
 
+        public IEnumerable<SubCategory> SubCategories { get; set; }
+
         public BaseCategory()
         {
             IsActive = false;

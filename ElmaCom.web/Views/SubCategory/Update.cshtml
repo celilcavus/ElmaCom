@@ -1,0 +1,22 @@
+﻿@model SubCategory
+
+
+@using (Html.BeginForm("Update", "SubCategory", FormMethod.Post))
+{
+
+    <label asp-for="BaseCategoryId">Kategori :</label>
+    <input asp-for="BaseCategoryId" class="form-control" />
+    <br />
+    <label asp-for="SubCategoryName">Alt Kategori Adı :</label>
+    <input asp-for="SubCategoryName" class="form-control" />
+    <br />
+    <label asp-for="Description">Aciklama :</label>
+    <textarea asp-for="Description" class="form-control" style="height:150px"></textarea>
+    <br />
+    <label asp-for="IsActive">Aktif :</label>
+    <input asp-for="IsActive" type="checkbox" />
+    <br />
+    <button class="btn btn-outline-primary" type="submit">Güncelle</button>
+    <a asp-action="GetSubCategoryList" asp-controller="SubCategory" class="btn btn-outline-dark">Back to SubCategory List</a>
+
+}
